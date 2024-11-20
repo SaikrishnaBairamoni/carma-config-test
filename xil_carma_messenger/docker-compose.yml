@@ -213,12 +213,12 @@ services:
     image: usdotfhwastol/carma-msgs:carma-system-4.5.0
     networks:
       carma_messenger_net_1:
-        ipv4_address: 172.7.0.5
+        ipv4_address: 172.7.0.4
     container_name: msger_ros1_bridge_1
     volumes_from:
       - container:carma-config:ro
     environment:
-      ROS_IP: 172.7.0.5
+      ROS_IP: 172.7.0.4
       ROS_MASTER_URI: http://172.7.0.3:11311/
       RMW_IMPLEMENTATION_OVERWRITE: ${RMW_IMPLEMENTATION}
     volumes:
@@ -237,9 +237,9 @@ services:
     image: usdotfhwastol/carma-messenger-bridge:latest
     networks:
       carma_messenger_net_1:
-        ipv4_address: 172.7.0.8
+        ipv4_address: 172.7.0.5
       carma_sim_net:
-        ipv4_address: 172.2.0.8
+        ipv4_address: 172.2.0.9
     container_name: carma_messenger_bridge_1
     command: >
       bash "wait-for-it.sh 172.2.0.2:11311 
@@ -251,32 +251,32 @@ services:
          --param messenger_ip_address:=172.7.0.2
          --param cdasim_ip_address:=172.2.0.2
 
-  # messenger_ns3_adapter_1:
-  #   image: usdotfhwastol/carma-ns3-adapter:carma-system-4.5.0
-  #   networks:
-  #     carma_messenger_net_1:
-  #       ipv4_address: 172.7.0.7
-  #     carma_sim_net:
-  #       ipv4_address: 172.2.0.7
-  #   container_name: messenger_ns3_adapter_1
-  #   volumes_from:
-  #     - container:carma-config:ro
-  #   environment:
-  #     ROS_IP: 172.3.0.7
-  #     ROS_MASTER_URI: http://172.3.0.2:11311/
-  #     NVIDIA_VISIBLE_DEVICES: all
-  #   volumes:
-  #     - /opt/carma/logs/carma_1:/opt/carma/logs
-  #     - /opt/carma/.ros:/home/carma/.ros
-  #     - /opt/carma/vehicle/calibration:/opt/carma/vehicle/calibration
-  #     - /opt/carma/maps:/opt/carma/maps
-  #     - /opt/carma/routes:/opt/carma/routes
-  #     - /opt/carma/yolo:/opt/carma/yolo
-  #     - ./ns3_adapter/adapter_1/parameters.yaml:/opt/carma/install/ns3_adapter/share/ns3_adapter/config/parameters.yaml
-  #   command: >
-  #     bash -c "wait-for-it.sh 172.3.0.2:11311 -- roslaunch ns3_adapter ns3_adapter.launch
-  #     role_id:='msger_1'
-  #     remap_ns:=/hardware_interface/comms"
+  messenger_ns3_adapter_1:
+    image: usdotfhwastol/carma-ns3-adapter:carma-system-4.5.0
+    networks:
+      carma_messenger_net_1:
+        ipv4_address: 172.7.0.6
+      carma_sim_net:
+        ipv4_address: 172.2.0.10
+    container_name: messenger_ns3_adapter_1
+    volumes_from:
+      - container:carma-config:ro
+    environment:
+      ROS_IP: 172.7.0.6
+      ROS_MASTER_URI: http://172.7.0.3:11311/
+      NVIDIA_VISIBLE_DEVICES: all
+    volumes:
+      - /opt/carma/logs/carma_1:/opt/carma/logs
+      - /opt/carma/.ros:/home/carma/.ros
+      - /opt/carma/vehicle/calibration:/opt/carma/vehicle/calibration
+      - /opt/carma/maps:/opt/carma/maps
+      - /opt/carma/routes:/opt/carma/routes
+      - /opt/carma/yolo:/opt/carma/yolo
+      - ./ns3_adapter/msger_adapter_1/parameters.yaml:/opt/carma/install/ns3_adapter/share/ns3_adapter/config/parameters.yaml
+    command: >
+      bash -c "wait-for-it.sh 172.7.0.3:11311 -- roslaunch ns3_adapter ns3_adapter.launch
+      role_id:='msger_1'
+      remap_ns:=/hardware_interface/comms"
 #############################################################################
   carma-cloud:
     image: usdotfhwastol/carma-cloud:carma-system-4.6.1
