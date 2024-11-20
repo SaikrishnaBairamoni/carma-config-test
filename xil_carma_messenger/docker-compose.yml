@@ -201,7 +201,7 @@ services:
         ipv4_address: 172.2.0.8
     container_name: carma_messenger_bridge_1
     command: >
-      bash "wait-for-it.sh 172.3.0.2:11311 
+      bash "wait-for-it.sh 172.2.0.2:11311 
       && source /opt/ros/humble/setup.bash 
       && source install/setup.bash
       && ros2 launch msger_mosaic_bridge mosaic_adapter_launch.py
