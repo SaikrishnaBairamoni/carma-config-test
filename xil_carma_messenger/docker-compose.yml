@@ -2,7 +2,7 @@
 services:
   carma-simulation:
     privileged: true
-    image: ${DOCKER_ORG}/cdasim:${DOCKER_TAG}
+    image: usdotfhwastol/cdasim:latest
     networks:
       carma_sim_net:
         ipv4_address: 172.2.0.2
