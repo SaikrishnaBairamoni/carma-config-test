@@ -186,8 +186,8 @@ services:
       - container:carma-config:ro
     volumes:
       - /opt/carma-messenger/messenger_1/logs:/opt/carma/logs
-      - /opt/carma-messenger/messenger_1/.ros:/home/carma/.ros
-      - /opt/carma-messenger/messenger_1/vehicle:/opt/carma/vehicle
+      - /opt/carma-messenger/.ros:/home/carma/.ros
+      - /opt/carma-messenger/vehicle:/opt/carma/vehicle
     command: >
       bash -c 'export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION_OVERWRITE} && source /opt/carma/install_ros2/setup.bash
       && ros2 launch /opt/carma/vehicle/config/carma-messenger-docker.launch.py'
@@ -243,15 +243,11 @@ services:
       carma_sim_net:
         ipv4_address: 172.2.0.9
     container_name: carma_messenger_bridge_1
-    command: >
-      bash "wait-for-it.sh 172.2.0.2:11311 
+    command: 
+      -c 'wait-for-it.sh 172.2.0.2:11311 
       && source /opt/ros/humble/setup.bash 
       && source install/setup.bash
-      && ros2 launch msger_mosaic_bridge mosaic_adapter_launch.py
-         --ros-args
-         --param role_id:=msger_1
-         --param messenger_ip_address:=172.7.0.2
-         --param cdasim_ip_address:=172.2.0.2
+      && ros2 launch msger_mosaic_bridge mosaic_adapter_launch.py role_id:=msger_1 messenger_ip_address:=172.7.0.2 cdasim_ip_address:=172.2.0.2'
 
   messenger_ns3_adapter_1:
     image: usdotfhwastol/carma-ns3-adapter:carma-system-4.5.0
@@ -280,7 +276,7 @@ services:
       role_id:='msger_1'
       remap_ns:=/hardware_interface/comms"
   
-  carma-messenger-vehilce-plugin_1:
+  carma-messenger-vehicle-plugin_1:
     image: usdotfhwastol/cdasim:latest
     networks:
       carma_sim_net:
