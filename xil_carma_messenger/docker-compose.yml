@@ -195,7 +195,7 @@ services:
   msger_roscore_1:
     image: usdotfhwastol/carma-base:carma-system-4.5.0
     networks:
-      carma_net_1:
+      carma_messenger_net_1:
         ipv4_address: 172.7.0.3
     container_name: msger_roscore_1
     volumes_from:
