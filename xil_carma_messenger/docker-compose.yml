@@ -247,10 +247,14 @@ services:
     command:
       -c 'source /opt/ros/humble/setup.bash 
       && source install/setup.bash
-      && ros2 launch msger_mosaic_bridge mosaic_adapter_launch.py role_id:=msger_1 messenger_ip_address:=172.7.0.2 cdasim_ip_address:=172.2.0.2'
+      && ros2 launch msger_mosaic_bridge mosaic_adapter_launch.py 
+      role_id:=msger_1
+      messenger_ip_address:=172.7.0.2
+      cdasim_ip_address:=172.2.0.2
+      host_ip_address:=172.2.0.9'
 
   messenger_ns3_adapter_1:
-    image: usdotfhwastol/carma-ns3-adapter:carma-system-4.5.0
+    image: usdotfhwastol/carma-ns3-adapter:latest
     networks:
       carma_messenger_net_1:
         ipv4_address: 172.7.0.6
