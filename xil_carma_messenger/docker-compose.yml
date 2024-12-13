@@ -189,6 +189,7 @@ services:
       - /opt/carma-messenger/messenger_1/.ros:/home/carma/.ros
       - /opt/carma-messenger/messenger_1/routes:/opt/carma/routes
       - ./carma_messenger/vehicle/calibration:/opt/carma/vehicle/calibration
+      - ./carma_messenger/traffic_incident/config:/opt/carma/install_ros2/traffic_incident/share/traffic_incident/config
     command: >
       bash -c "export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION} && source /opt/carma/install_ros2/setup.bash
       && echo $RMW_IMPLEMENTATION && ros2 launch /opt/carma/vehicle/config/carma-messenger-docker.launch.py"
