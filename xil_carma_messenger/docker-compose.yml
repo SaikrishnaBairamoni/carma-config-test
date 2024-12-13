@@ -303,6 +303,7 @@ services:
     volumes:
       - ./carma_messenger/logs:/home/carma/src/carma_messenger_vehicle_plugin/logs
       - ./carma_messenger/resources:/home/carma/src/carma_messenger_vehicle_plugin/src/resources
+      - ./carma_messenger/msger_vehicle_plugin:/home/carma/src/carma_messenger_vehicle_plugin/src
     command: bash -c "cd /home/carma/src/carma_messenger_vehicle_plugin/src && python3 msger_veh_wrapper.py --traci-ip 172.2.0.2 --traci-order-num 3"
     
 #############################################################################
