@@ -50,6 +50,7 @@ services:
     volumes_from:
       - container:carma-config:ro
     volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
       - /opt/carma/logs/carma_1:/opt/carma/logs
       - /opt/carma/.ros:/home/carma/.ros
       - /opt/carma/vehicle/calibration:/opt/carma/vehicle/calibration
@@ -61,6 +62,13 @@ services:
     environment:
       ROS_IP: 172.3.0.3
       ROS_MASTER_URI: http://172.3.0.2:11311/
+      DISPLAY: ${DISPLAY}
+      QT_X11_NO_MITSHM: 1
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
     command: >
       bash -c 'wait-for-it.sh 172.3.0.2:11311 -- roslaunch /opt/carma/vehicle/config/carma_docker.launch'
 
@@ -542,25 +550,6 @@ services:
       --asc3app-path '../evcfile/asc3app-application.zip'
       --traci-ip 172.2.0.2"
 
-  scenario-runner:
-    image: usdotfhwastol/scenario-runner:carma-system-4.5.0
-    container_name: scenario-runner
-    networks:
-      - carma_sim_net
-    depends_on:
-      - carma-simulation
-    volumes:
-      - ./scenario-runner/vru_collision.py:/app/scenario_runner/srunner/scenarios/vru_collision.py
-      - ./scenario-runner/vru_collision.xml:/app/scenario_runner/srunner/examples/vru_collision.xml
-      - ./carla-recorder/:/app/scenario_runner/metrics/data/
-    # sleep is for mainly carma-platform's components to
-    # activate and be ready before scenario starts
-    entrypoint: >
-      bash -c "sleep 30
-      && python3 scenario_runner.py
-      --scenario VulnerableRoadUserCollision_LeftTurn
-      --record metrics/data/
-      --host 172.2.0.2"
 
 networks:
   carma_sim_net:
