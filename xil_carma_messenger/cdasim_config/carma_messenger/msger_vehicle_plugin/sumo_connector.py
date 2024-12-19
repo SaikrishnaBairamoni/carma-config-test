@@ -225,7 +225,7 @@ class SumoConnector:
             traci.vehicle.setStop(
             vehID=veh_id,               # Vehicle ID
             edgeID=traci.vehicle.getRoadID(veh_id),              # Edge ID where the vehicle stops
-            pos=285,                  # Position (meters) on the edge
+            pos=70,                  # Position (meters) on the edge
             laneIndex=2,               # Lane index (e.g., 0 for the first lane)
             duration=10000,             # Duration (in seconds) the vehicle stays stopped
             flags=0                    # Flags (optional, can be left as 0)
@@ -284,7 +284,7 @@ class SumoConnector:
     def get_veh_lane(self, veh_id):
 
         return traci.vehicle.getLaneID(veh_id)
-    
+
     def get_leftmost_lane(self, veh_id):
         try:
             current_lane_id = traci.vehicle.getLaneID(veh_id)
