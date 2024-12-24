@@ -15,12 +15,13 @@ services:
       - /opt/carma-simulation/logs:/opt/carma-simulation/logs
       - ./carla-recorder/:/app/scenario_runner/metrics/data/
       - ./cdasim/logback.xml:/opt/carma-simulation/etc/logback.xml
+      - ~/cdasim/co-simulation/bundle/src/assembly/resources/scenarios:/opt/carma-simulation/scenarios
     deploy:
       resources:
         reservations:
           devices:
             - capabilities: [gpu]
-    command: bash -c "./mosaic.sh -s Town04"
+    command: bash -c "./mosaic.sh -s Town05"
 
   ## carma_1 vehicle
   roscore_1:
