@@ -69,10 +69,11 @@ services:
       - /opt/carma/maps:/opt/carma/maps
       - /opt/carma/routes:/opt/carma/routes
       - /opt/carma/yolo:/opt/carma/yolo
+      - /home/carma/carma_ws/src/carma-platform/inlanecruising_plugin/config/parameters.yaml:/opt/carma/install_ros2/inlanecruising_plugin/share/inlanecruising_plugin/config/parameters.yaml
     command: bash -c 'export RMW_IMPLEMENTATION=rmw_fastrtps_cpp && source /opt/carma/install_ros2/setup.bash && ros2 launch /opt/carma/vehicle/config/carma_docker.launch.py'
 
   ros1_bridge:
-    image: usdotfhwastoldev/carma-msgs:develop
+    image: usdotfhwastol/carma-msgs:carma-system-4.5.0
     networks:
       carma_net:
         ipv4_address: 172.3.0.5
@@ -114,12 +115,12 @@ services:
       && source ~/carma_carla_ws/devel/setup.bash
       && roslaunch carma_carla_agent carma_carla_agent.launch
       role_name:='carma_1'
-      selected_route:='VOICES_Demo1_veh1_route'
+      selected_route:=${ROUTE}
       town:='TFHRC'
-      host:='127.0.0.1'
+      host:=${CARLA_HOST_IP}
       port:='2000'
-      start_delay_in_seconds:='40'
-      spawn_point:='-174.9,-513.0,40,0,0,10'
+      start_delay_in_seconds:=${START_DELAY_IN_SECONDS}
+      spawn_point:=${SPAWN_POINT}
       synchronous_mode:='true'"
 
 networks:
