@@ -4,7 +4,7 @@
   
        {
       "controllerId": 1,
-      "controllerCfgPath": "/home/carma/src/resources/test_3.cfg",
+      "controllerCfgPath": "/home/carma/src/resources/421.cfg",
       "moe_dir": null,
       "start_time": null,
       "bind_ip": null,
@@ -20,7 +20,7 @@
       },
       {
       "controllerId": 2,
-      "controllerCfgPath": "/home/carma/src/resources/test_3.cfg",
+      "controllerCfgPath": "/home/carma/src/resources/965.cfg",
       "moe_dir": null,
       "start_time": null,
       "bind_ip": null,
@@ -37,7 +37,7 @@
  
       {
       "controllerId": 3,
-      "controllerCfgPath": "/home/carma/src/resources/test_3.cfg",
+      "controllerCfgPath": "/home/carma/src/resources/685.cfg",
       "moe_dir": null,
       "start_time": null,
       "bind_ip": null,
