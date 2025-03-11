@@ -27,6 +27,8 @@ This CARMA Configuration Image creates a **XIL** (Anything-In-the-Loop) scenario
 The configuration shows above will apply to 421.cfg, 685.cfg and 965.cfg
 
 ## Sumo Background Traffic
+This scenario starts with no background Sumo vehicles but route file for Sumo background traffic can be genrated and route files can be added as a docker volume in the `xil-Town05/docker-compose.ym'` to add sumo background traffic.
+
 There are two options to generate the background traffic route file `Town05.rou.xml`  for this scenario:
 1. Utilizing Sumo randomTrips.py to generate random traffic running in Sumo
 2. Defining OD matrix and specify origin and destination along with number of vehicles running in Sumo
@@ -52,7 +54,15 @@ This script also requires Sumo tools od2trips and duarouter and sumo tools can i
 #### OD Matrix
 ![Alt text](docs/OD.png)
 
-To change the number of vehicles in the horizontal or vertical direction, modify the values in the third column of OD_file.od, which specify the number of vehicles, and then re-run the generate_route.sh script to generate the route file with the updated vehicle count. The first two columns in the OD matrix specify the origin and destination, while the third column defines the number of vehicles traveling between them. For a detailed guideline, refer to SUMO od2trips documentation here  https://sumo.dlr.de/docs/od2trips.html
+1. To change the number of vehicles in the horizontal or vertical direction, modify the values in the third column of OD_file.od, which specify the number of vehicles
+2. Re-run the generate_route.sh script to generate the route file with the updated vehicle count. defines the number of vehicles traveling between them.
+3. New traffic Assignment zones (Tazs) can also be added in the `Taz.xml` and new Tazs can be used as origins and destinations in `OD_file.od` to genrate vehicle trips in those TAZs. For a detailed guideline, refer to SUMO od2trips documentation here  https://sumo.dlr.de/docs/od2trips.html
+
+### Adding generated Town05.rou.xml to CDASim
+To add Sumo background traffic generated follwoing either of the previous steps the `docker-compose.yml' files need to updated. To add the `Town05.rou.xml` route file open the `docker-compose.yml` file and add a docker volume using ` - ./sumo_background_traffic/Town05.rou.xml:/opt/carma-simulation/scenarios/Town05/sumo/Town05.rou.xml `. The updated volume in `docker-compose.yml` should like like as below:
+![Alt text](docs/volume.png)
+
+This should replace the existing `Town05.rou.xml` with the newly genrated route file in CDASim and when the scenario is deployed the background traffic will appear in the scenario
 
 ## Deployment Instructions
 ### Deployment Steps
