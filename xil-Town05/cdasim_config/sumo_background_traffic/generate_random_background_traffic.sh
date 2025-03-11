@@ -4,8 +4,8 @@
 
 #Usage:
 # 1. Run with arguments:
-#    ./generate_background_traffic.sh <network_file> <output_file> <duration> <num_vehicles> <random_seed>
-#    Example: ./generate_traffic.sh network.net.xml routes.rou.xml 600 50 42
+#    ./generate_background_traffic.sh  <duration> <num_vehicles> <random_seed>
+#    Example: ./generate_traffic.sh  600 50 42
 # 2. Or run interactively by omitting arguments:
 #    ./generate_traffic.sh
 
