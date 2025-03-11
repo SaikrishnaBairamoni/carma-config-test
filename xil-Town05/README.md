@@ -70,10 +70,10 @@ volumes:
       - ./cdasim/logback.xml:/opt/carma-simulation/etc/logback.xml
       - ./sumo_background_traffic/Town05.rou.xml:/opt/carma-simulation/scenarios/Town05/sumo/Town05.rou.xml
 ```
-Build the image  using ./build_image.sh shown in the Deployment instruction and this will replace the existing `Town05.rou.xml` with the newly generated route file in CDASim and when the scenario is deployed the background traffic will appear in the simulation. 
+Build the image  using `./build_image.sh` shown in the deployment instruction and this will replace the existing `Town05.rou.xml` with the newly generated route file in CDASim and when the scenario is deployed the background traffic will appear in the simulation. 
 
 ### Turning off Background Traffic
-To turnoff background traffic in Town05 just comment out the added ` - ./sumo_background_traffic/Town05.rou.xml:/opt/carma-simulation/scenarios/Town05/sumo/Town05.rou.xml `  and build the image again using `./build_image.sh` shown in the Deployment instruction
+To turnoff background traffic in Town05 just comment out the added ` - ./sumo_background_traffic/Town05.rou.xml:/opt/carma-simulation/scenarios/Town05/sumo/Town05.rou.xml `  and build the image again using `./build_image.sh` shown in the deployment instruction
 
 ## Deployment Instructions
 ### Deployment Steps
