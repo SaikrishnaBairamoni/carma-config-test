@@ -59,7 +59,7 @@ This script also requires Sumo tools od2trips and duarouter and sumo tools can i
 2. Re-run the generate_route.sh script to generate the route file with the updated vehicle counts.
 3. New traffic Assignment zones (Tazs) can also be added in the `Taz.xml` and new Tazs can be used as origins and destinations in `OD_file.od` to generate vehicle trips in those TAZs. For a detailed guideline, refer to SUMO od2trips [documentation](https://sumo.dlr.de/docs/od2trips.html)  
 
-### Adding generated Town05.rou.xml to CDASim
+### Adding generated Background Traffic to CDASim
 To add Sumo background traffic generated follwoing either of the previous steps the `docker-compose.yml` files need to updated. To add the `Town05.rou.xml` route file open the `docker-compose.yml` file and add a docker volume using ` - ./sumo_background_traffic/Town05.rou.xml:/opt/carma-simulation/scenarios/Town05/sumo/Town05.rou.xml `. The updated volume in `docker-compose.yml` should like like as below:
 
 ```YAML
@@ -70,13 +70,16 @@ volumes:
       - ./cdasim/logback.xml:/opt/carma-simulation/etc/logback.xml
       - ./sumo_background_traffic/Town05.rou.xml:/opt/carma-simulation/scenarios/Town05/sumo/Town05.rou.xml
 ```
-This should replace the existing `Town05.rou.xml` with the newly generated route file in CDASim and when the scenario is deployed the background traffic will appear in the simulation. And to turnoff background traffic in Town05 just comment out the added line and build the image again shown in the Deployment instruction
+Build the image  using ./build_image.sh shown in the Deployment instruction and this will replace the existing `Town05.rou.xml` with the newly generated route file in CDASim and when the scenario is deployed the background traffic will appear in the simulation. 
+
+### Turning off Background Traffic
+To turnoff background traffic in Town05 just comment out the added ` - ./sumo_background_traffic/Town05.rou.xml:/opt/carma-simulation/scenarios/Town05/sumo/Town05.rou.xml `  and build the image again using `./build_image.sh` shown in the Deployment instruction
 
 ## Deployment Instructions
 ### Deployment Steps
 1) Copy all files in the `xil-Town05/cdasim_config/route_config/` directory to `/opt/carma/routes/`
 2) Navigate to `xil-Town05` and `./build_image.sh` to build CARMA Config image. (Optional if remote image exists)
-   1) `./build_image/sh` should print resulting image name
+   1) `./build_image.sh` should print resulting image name
 3) Run `carma config set <carma-config-image-name>`
 4) Navigate to the `cdasim_config/` directory.
 5) `./run_simulation` script clears all necessary volumes and containers and runs `carma start all`
