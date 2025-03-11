@@ -12,9 +12,6 @@
 #  License for the specific language governing permissions and limitations under
 #  the License.
 
-
-
-
 services:
   roscore:
     image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}
@@ -30,10 +27,10 @@ services:
     restart: always
     command: roscore
 
-  platform_ros2:
-    image: ${DOCKER_ORG}/carma-platform:${DOCKER_TAG}-humble
+  platform:
+    image: ${DOCKER_ORG}/carma-platform:${DOCKER_TAG}
     network_mode: host
-    container_name: platform_ros2
+    container_name: platform
     volumes_from:
       - container:carma-config:ro
     volumes:
@@ -46,7 +43,7 @@ services:
     command: bash -c 'source /opt/carma/install/setup.bash && ros2 launch /opt/carma/vehicle/config/carma_docker.launch.py'
 
   ros1_bridge:
-    image: ${DOCKER_ORG}/carma-msgs:${DOCKER_TAG}-humble
+    image: ${DOCKER_ORG}/carma-msgs:${DOCKER_TAG}
     network_mode: host
     container_name: ros1_bridge
     volumes_from:

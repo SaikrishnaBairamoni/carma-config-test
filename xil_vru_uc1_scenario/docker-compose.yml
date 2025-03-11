@@ -41,7 +41,7 @@ services:
     command: roscore
 
   platform_1:
-    image: ${DOCKER_ORG}/carma-platform:${DOCKER_TAG}-humble
+    image: ${DOCKER_ORG}/carma-platform:${DOCKER_TAG}
     networks:
       carma_net_1:
         ipv4_address: 172.3.0.4
@@ -65,7 +65,7 @@ services:
       && ros2 launch /opt/carma/vehicle/config/carma_docker.launch.py'
 
   ros1_bridge_1:
-    image:  ${DOCKER_ORG}/carma-msgs:${DOCKER_TAG}-humble
+    image:  ${DOCKER_ORG}/carma-msgs:${DOCKER_TAG}
     networks:
       carma_net_1:
         ipv4_address: 172.3.0.5

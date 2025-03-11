@@ -7,6 +7,8 @@ environment:
   environment_perception_controller:
     ros__parameters:
       subsystem_namespace: /environment
+      service_timeout_ms: 500
+      call_timeout_ms: 5000
       required_subsystem_nodes: ['']
       unmanaged_required_nodes:
         - /hardware_interface/velodyne_lidar_driver_wrapper_node
@@ -16,6 +18,9 @@ hardware_interface:
   drivers_controller:
     ros__parameters:
       subsystem_namespace: /hardware_interface
+      startup_duration: 30
+      service_timeout_ms: 500
+      call_timeout_ms: 5000
       required_subsystem_nodes: ['']
       unmanaged_required_nodes: ['']
       excluded_namespace_nodes:
@@ -30,6 +35,8 @@ message:
   v2x_controller:
     ros__parameters:
       subsystem_namespace: /message
+      service_timeout_ms: 500
+      call_timeout_ms: 5000
       required_subsystem_nodes: ['']
       unmanaged_required_nodes:
         - /hardware_interface/dsrc_driver_node
@@ -39,6 +46,8 @@ guidance:
   guidance_controller:
     ros__parameters:
       subsystem_namespace: /guidance
+      service_timeout_ms: 500
+      call_timeout_ms: 5000
       required_subsystem_nodes: ['']
       unmanaged_required_nodes: [''] # TODO add the controller driver once it is integrated with ROS2
       full_subsystem_required: true
@@ -64,6 +73,8 @@ localization:
   localization_controller:
     ros__parameters:
       subsystem_namespace: /localization
+      service_timeout_ms: 500
+      call_timeout_ms: 5000
       required_subsystem_nodes: ['']
       unmanaged_required_nodes: ['']
       full_subsystem_required: true
