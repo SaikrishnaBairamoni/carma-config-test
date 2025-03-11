@@ -26,6 +26,34 @@ This CARMA Configuration Image creates a **XIL** (Anything-In-the-Loop) scenario
 
 The configuration shows above will apply to 421.cfg, 685.cfg and 965.cfg
 
+## Sumo Background Traffic
+There are two options to generate the background traffic route file `Town05.rou.xml`  for this scenario:
+1. Utilizing Sumo randomTrips.py to generate random traffic running in Sumo
+2. Defining OD matrix and specify origin and destination along with number of vehicles running in Sumo
+
+### Random Traffic using randomTrips.py
+Run the script `generate_random_background_traffic.sh` in the `xil-Town05/cdasim_config/sumo_background_traffic/` to generate random background traffic. This script takes simulation duration, number of vehicicles and a random number seeds to genrate a route file mapping with Carla vehicle Types. The minimum straight line distance of the each vehicle route is atleast 300m. The script takes command line arguments as well as interactive input of simulation duration, number of vehicles and random number seed.
+
+#### Prerequsites:
+Sumo tools needs to be installed for running the following script. To install Sumo tools use the command:
+`sudo apt-get install sumo-tools ` 
+
+#### Running the script with Command Line Argument
+Use the following command 
+
+`./generate_random_background_traffic.sh simulation_duration number_of_vehicles random_number_seed` 
+
+If command line argument is not provided the script asks for the simulation duration, number of vehicles , random number seed and genrates the `Town05.rou.xml` 
+
+### Utilizing OD matrix to generate Background Traffic
+The script `generate_route_from_OD_matrix.sh` in the `xil-Town05/cdasim_config/sumo_background_traffic/`  utilizes sumo od2trips ( https://sumo.dlr.de/docs/od2trips.html ) tool to generate background traffic for Town05 given Traffic assignment zones (TAZ) and OD matrix
+#### Prerequisites
+This script also requires Sumo tools od2trips and duarouter and sumo tools can installed  using the command:  sudo apt-get install sumo-tools (https://sumo.dlr.de/docs/Installing/index.html)
+#### OD Matrix
+![Alt text](docs/OD.png)
+
+To change the number of vehicles in the horizontal or vertical direction, modify the values in the third column of OD_file.od, which specify the number of vehicles, and then re-run the generate_route.sh script to generate the route file with the updated vehicle count. The first two columns in the OD matrix specify the origin and destination, while the third column defines the number of vehicles traveling between them. For a detailed guideline, refer to SUMO od2trips documentation here  https://sumo.dlr.de/docs/od2trips.html
+
 ## Deployment Instructions
 ### Deployment Steps
 1) Copy all files in the `xil-Town05/cdasim_config/route_config/` directory to `/opt/carma/routes/`
