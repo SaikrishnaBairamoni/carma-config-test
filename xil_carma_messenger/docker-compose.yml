@@ -90,14 +90,14 @@ services:
       - /opt/carma/routes:/opt/carma/routes
       - /opt/carma/yolo:/opt/carma/yolo
       # ILC tuning for carma-cloud workzone (carma_2) is breaking k900 normal lanefolow regression testing, so using different tuning
-      - ./carma/inlanecruising_config/parameters.yaml:/opt/carma/install_ros2/inlanecruising_plugin/share/inlanecruising_plugin/config/parameters.yaml
-      - ./carma/environment.launch.py:/opt/carma/install_ros2/carma/share/carma/launch/environment.launch.py
-      - ./carma/light_controlled_intersection_tactical_plugin/parameters.yaml:/opt/carma/install_ros2/light_controlled_intersection_tactical_plugin/share/light_controlled_intersection_tactical_plugin/config/parameters.yaml
-      - ./carma/lci_strategic_plugin/parameters.yaml:/opt/carma/install_ros2/lci_strategic_plugin/share/lci_strategic_plugin/config/parameters.yaml
-      - ./carma/plugins.launch.py:/opt/carma/install_ros2/carma/share/carma/launch/plugins.launch.py
-      - ./carma/system_controller/config.yaml:/opt/carma/install_ros2/system_controller/share/system_controller/config/config.yaml
+      - ./carma/inlanecruising_config/parameters.yaml:/opt/carma/install/inlanecruising_plugin/share/inlanecruising_plugin/config/parameters.yaml
+      - ./carma/environment.launch.py:/opt/carma/install/carma/share/carma/launch/environment.launch.py
+      - ./carma/light_controlled_intersection_tactical_plugin/parameters.yaml:/opt/carma/install/light_controlled_intersection_tactical_plugin/share/light_controlled_intersection_tactical_plugin/config/parameters.yaml
+      - ./carma/lci_strategic_plugin/parameters.yaml:/opt/carma/install/lci_strategic_plugin/share/lci_strategic_plugin/config/parameters.yaml
+      - ./carma/plugins.launch.py:/opt/carma/install/carma/share/carma/launch/plugins.launch.py
+      - ./carma/system_controller/config.yaml:/opt/carma/install/system_controller/share/system_controller/config/config.yaml
     command: >
-      bash -c 'export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION} && source /opt/carma/install_ros2/setup.bash
+      bash -c 'export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION} && source /opt/carma/install/setup.bash
       && ros2 launch /opt/carma/vehicle/config/carma_docker.launch.py'
 
   ros1_bridge_1:
@@ -121,7 +121,7 @@ services:
       - /opt/carma/yolo:/opt/carma/yolo
     command: >
       bash -c 'export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION} && wait-for-it.sh 172.3.0.2:11311 -- rosparam load /opt/carma/vehicle/config/bridge.yml
-      && source ~/.base-image/workspace/install/setup.bash
+      && source /home/carma/.base-image/workspace/install/setup.bash
       && ros2 run ros1_bridge dynamic_bridge --multi-threads'
 
   carma-carla-integration_1:
@@ -176,7 +176,7 @@ services:
       - /opt/carma/yolo:/opt/carma/yolo
       - ./ns3_adapter/adapter_1/parameters.yaml:/opt/carma/install/ns3_adapter/share/ns3_adapter/config/parameters.yaml
     command: >
-      bash -c "wait-for-it 172.3.0.2:11311 -- roslaunch ns3_adapter ns3_adapter.launch
+      bash -c "wait-for-it 172.3.0.2:11311 -- roslaunch ns3_adapter ns3_adapter.launch enable_ros1_record:=true
       role_id:='carma_1'
       remap_ns:=/hardware_interface/comms"
 #############################################################################
@@ -197,10 +197,10 @@ services:
       - /opt/carma-messenger/messenger_1/.ros:/home/carma/.ros
       - /opt/carma-messenger/messenger_1/routes:/opt/carma/routes
       - ./carma_messenger/vehicle/calibration:/opt/carma/vehicle/calibration
-      - ./carma_messenger/traffic_incident/config:/opt/carma/install_ros2/traffic_incident/share/traffic_incident/config
+      - ./carma_messenger/traffic_incident/config:/opt/carma/install/traffic_incident/share/traffic_incident/config
 
     command: >
-      bash -c "export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION} && source /opt/carma/install_ros2/setup.bash
+      bash -c "export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION} && source /opt/carma/install/setup.bash
       && echo $RMW_IMPLEMENTATION && ros2 launch /opt/carma/vehicle/config/carma-messenger-docker.launch.py"
 
   msger_roscore_1:
@@ -242,7 +242,7 @@ services:
       - /opt/carma/yolo:/opt/carma/yolo
     command: >
       bash -c "export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION} && wait-for-it.sh 172.7.0.3:11311 -- rosparam load /opt/carma/vehicle/config/msger_bridge.yml
-      && source ~/.base-image/workspace/install/setup.bash
+      && source /home/carma/.base-image/workspace/install/setup.bash
       && ros2 run ros1_bridge dynamic_bridge --multi-threads"
 
   # CARMA Messenger-MOSAIC Bridge
@@ -291,7 +291,7 @@ services:
       - /opt/carma/yolo:/opt/carma/yolo
       - ./ns3_adapter/msger_adapter_1/parameters.yaml:/opt/carma/install/ns3_adapter/share/ns3_adapter/config/parameters.yaml
     command: >
-      bash -c "wait-for-it 172.7.0.3:11311 -- roslaunch ns3_adapter ns3_adapter.launch
+      bash -c "wait-for-it 172.7.0.3:11311 -- roslaunch ns3_adapter ns3_adapter.launch enable_ros1_record:=true
       role_id:='msger_1'
       remap_ns:=/hardware_interface/comms"
 

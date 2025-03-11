@@ -14,7 +14,7 @@
 
 services:
   roscore:
-    image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}
+    image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}-noetic
     network_mode: host
     container_name: roscore
     volumes_from:

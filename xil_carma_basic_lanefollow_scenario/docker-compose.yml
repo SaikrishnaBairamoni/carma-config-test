@@ -23,7 +23,7 @@ services:
 
   ## carma_1 vehicle
   roscore_1:
-    image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}
+    image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}-noetic
     networks:
       carma_net_1:
         ipv4_address: 172.3.0.2
@@ -128,7 +128,7 @@ services:
   #################
 
   # roscore_2:
-  #   image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}
+  #   image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}-noetic
   #   networks:
   #     carma_net_2:
   #       ipv4_address: 172.5.0.2

@@ -25,7 +25,7 @@ services:
 ############################################################################
 # carma vehicle 1
   roscore_1:
-    image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}
+    image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}-noetic
     networks:
       carma_net_1:
         ipv4_address: 172.3.0.2
@@ -146,7 +146,7 @@ services:
       - /opt/carma/yolo:/opt/carma/yolo
       - ./ns3_adapter/adapter_1/parameters.yaml:/opt/carma/install/ns3_adapter/share/ns3_adapter/config/parameters.yaml
     command: >
-      bash -c "wait-for-it 172.3.0.2:11311 -- roslaunch ns3_adapter ns3_adapter.launch
+      bash -c "wait-for-it 172.3.0.2:11311 -- roslaunch ns3_adapter ns3_adapter.launch enable_ros1_record:=true
       role_id:='carma_1'
       remap_ns:=/hardware_interface/comms"
 #############################################################################
@@ -154,7 +154,7 @@ services:
 #############################################################################
 # carma_2 vehicle
   roscore_2:
-    image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}
+    image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}-noetic
     networks:
       carma_net_2:
         ipv4_address: 172.5.0.2
@@ -268,7 +268,7 @@ services:
       - /opt/carma/routes:/opt/carma/routes
       - /opt/carma/yolo:/opt/carma/yolo
       - ./ns3_adapter/adapter_2/parameters.yaml:/opt/carma/install/ns3_adapter/share/ns3_adapter/config/parameters.yaml
-    command: bash -c "wait-for-it 172.5.0.2:11311 -- roslaunch ns3_adapter ns3_adapter.launch role_id:='carma_2' remap_ns:=/hardware_interface/comms"
+    command: bash -c "wait-for-it 172.5.0.2:11311 -- roslaunch ns3_adapter ns3_adapter.launch enable_ros1_record:=true role_id:='carma_2' remap_ns:=/hardware_interface/comms"
 #############################################################################
 
   carma-cloud:
