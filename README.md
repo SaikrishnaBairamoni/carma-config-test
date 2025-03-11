@@ -5,10 +5,10 @@
 
 
 # CARMAConfig
-The CARMAConfig repository stores the deployment-specific and vehicle-class specific configuration files (such as Docker Compose manifests, network configuration files, system parameters) for use with the different deployment environments (i.e. local development, real vehicle, simulation, etc.) that CARMA Platform supports. A detailed breakdown of how CARMA Platform treats vehicle configuration can be found on the Confluence page: https://usdot-carma.atlassian.net/wiki/spaces/CRMPLT/pages/886276097/Parameter+and+Launch+Design+for+Different+Vehicle+Configurations
+The CARMAConfig repository stores the deployment-specific and vehicle-class specific configuration files (such as Docker Compose manifests, network configuration files, system parameters) for use with the different deployment environments (i.e. local development, passenger or truck vehicles, etc.) that CARMA Platform supports. A detailed breakdown of how CARMA Platform treats vehicle configuration can be found on the Confluence page: https://usdot-carma.atlassian.net/wiki/spaces/CRMPLT/pages/886276097/Parameter+and+Launch+Design+for+Different+Vehicle+Configurations
 
 ## Vehicle Configuration Folders
-Folders containing the name of a specific vehicle class (such as 'lexus_rx_450h_2019') contain vehicle configuration data that is specific to that class of vehicle and sensor suite (for example, the launch file for the sensors used on that vehicle). Additionally, folders containing the name of a specific simulation scenario contain configuration data that is specific to that simulation scenario. These folders also contain the Docker Compose files that will launch CARMA Platform with the appropriate configuration. These folders do not contain calibration information that is specific to an individual vehicle.
+Folders containing the name of a specific vehicle class (such as 'lexus_rx_450h_2019') contain vehicle configuration data that is specific to that class of vehicle and sensor suite (for example, the launch file for the sensors used on that vehicle). These folders also contain the Docker Compose files that will launch CARMA Platform with the appropriate configuration. These folders do not contain calibration information that is specific to an individual vehicle.
 
 ## Vehicle Calibration Folder
 Some parameters are unique to individual vehicles such as precise sensor orientations or controller tunings. These values are stored separately from parameters that apply to classes of vehicles. A special folder structure is used for this purpose, an example of this structure can be seen in the example_calibration_folder directory. Calibration folders should be installed on the vehicle such that their vehicle folders can be found at /opt/carma/vehicle. It is recommended that this be done as a sym-link to a git repository so your vehicle calibration data can be version controlled.
@@ -21,15 +21,14 @@ The current CARMA Platform system operates as a hybrid of ROS 1 Noetic and ROS 2
 
 With regards to the primary [carma-platform](https://github.com/usdot-fhwa-stol/carma-platform) repository, all of the components are in ROS2 Humble.
 
-Depending on the xil use case, however, some may run ROS2 foxy versions such as xil_cloud_telematics and xil_carma_messenger as their core components such as telematics and carma-messenger-bridge are not fully tested in humble yet.
-
 Additionally, the [carma-ssc-interface-wrapper](https://github.com/usdot-fhwa-stol/carma-ssc-interface-wrapper) repository contains the drive-by-wire driver and SSC packages that are used for CARMA Platform-supported vehicle classes. The packages for several vehicle classes (Chrysler Pacifica, Ford Fusion, and Freightliner Cascadia) are only available for ROS 1 Noetic. These packages are closed source, and the external company providing them does not plan to upgrade them to ROS 2.
-
-Finally, the [carma-carla-integration](https://github.com/usdot-fhwa-stol/carma-carla-integration) and [carma-ns3-adapter](https://github.com/usdot-fhwa-stol/carma-ns3-adapter) repositories contain packages that are required for simulation deployments. These packages are all built for ROS 1 Noetic due to a dependency on on CARLA 0.9.10, which only exposes a networking bridge for ROS 1. In the future, when simulation-related repositories are upgraded to support a newer version of CARLA, these packages will be upgraded to ROS 2.
 
 The table below helps visualize this described breakdown of ROS 1 Noetic and ROS 2 Humble content across the entire CARMA Platform system for different deployment types.
 
 ![CARMA Platform System ROS Version Overview Table](docs/image/carma-platform-system-ros-version-table.png)
+
+## CARMAConfig
+For configuration files intended for simulation that used to be here until release `carma-system-4.7.1` please refer to https://github.com/usdot-fhwa-stol/cdasim-config repository.
 
 # CARMAPlatform
 The primary CARMA Platform repository can be found [here](https://github.com/usdot-fhwa-stol/carma-platform) and is part of the [USDOT FHWA STOL](https://github.com/usdot-fhwa-stol/)
