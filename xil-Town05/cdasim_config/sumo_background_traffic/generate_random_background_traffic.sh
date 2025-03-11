@@ -39,8 +39,7 @@ rate=$(echo "$sim_duration / $veh_number" | bc -l)
 
 
 # Run the Python script with the provided inputs
-python3 /usr/share/sumo/tools/randomTrips.py -n Town05.net.xml -r Town05.rou.xml  --fringe-factor 50 -e $sim_duration -p $rate --vehicle-class passenger --validate --random --seed $seed
-
+python3 /usr/share/sumo/tools/randomTrips.py -n Town05.net.xml -r Town05.rou.xml  -e $sim_duration -p $rate --vehicle-class passenger --validate --random --seed $seed --min-distance 300 --random-depart --fringe-factor 10 --allow-fringe --remove-loops --weights-prefix "weights"
 
 #Changing vehicle Types matching pasenger car of CARLA 
 # List of Passenger vehicle classes in CARLA 
