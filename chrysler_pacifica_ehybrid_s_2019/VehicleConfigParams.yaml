@@ -4,11 +4,11 @@
 
 # String: Host vehicle make
 # Value type: Measured
-vehicle_make: 'Chrysler'
+vehicle_make: "Chrysler"
 
 # String: Host vehicle model
 # Value type: Measured
-vehicle_model: 'Pacifica'
+vehicle_model: "Pacifica"
 
 # Integer: Host vehicle year
 # Value type: Measured
@@ -89,7 +89,7 @@ vehicle_steer_lim_deg: 35.3
 # steering dynamics time constant
 # Value type: Measured
 # Unit: s
-vehicle_model_steer_tau : 0.3
+vehicle_model_steer_tau: 0.3
 
 # Vehicle Participation Type corresponding to the Lanelet2 participant type standards.
 # Used for interpreting traffic rules in world model instances
