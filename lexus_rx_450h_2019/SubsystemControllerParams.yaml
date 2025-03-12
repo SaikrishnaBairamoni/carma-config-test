@@ -48,7 +48,7 @@ guidance:
       call_timeout_ms: 5000
       subsystem_namespace: /guidance
       required_subsystem_nodes: ['']
-      unmanaged_required_nodes: [''] # TODO add the controller driver once it is integrated with ROS2
+      unmanaged_required_nodes: [''] # TODO add the controller driver once it is integrated with ROS2 (CAR-6107)
       full_subsystem_required: true
       required_plugins:
         - /guidance/plugins/route_following_plugin
