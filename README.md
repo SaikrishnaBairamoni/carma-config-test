@@ -27,7 +27,7 @@ The table below helps visualize this described breakdown of ROS 1 Noetic and ROS
 
 ![CARMA Platform System ROS Version Overview Table](docs/image/carma-platform-system-ros-version-table.png)
 
-## CARMAConfig
+## CDASim Config
 For configuration files intended for simulation that used to be here until release `carma-system-4.7.1` please refer to https://github.com/usdot-fhwa-stol/cdasim-config repository.
 
 # CARMAPlatform
