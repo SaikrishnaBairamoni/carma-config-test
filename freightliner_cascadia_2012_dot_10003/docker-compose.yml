@@ -19,8 +19,6 @@ services:
     container_name: roscore
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - ROS_IP=192.168.88.10
     volumes:
@@ -36,8 +34,6 @@ services:
     runtime: nvidia
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     volumes:
       - /opt/carma/logs:/opt/carma/logs
       - /opt/carma/.ros:/home/carma/.ros
@@ -53,8 +49,6 @@ services:
     container_name: ros1_bridge
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - ROS_IP=192.168.88.10
       - ROS_MASTER_URI=http://localhost:11311
@@ -73,8 +67,6 @@ services:
     container_name: lightbar-driver
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     volumes:
       - /opt/carma/logs:/opt/carma/logs
       - /opt/carma/.ros:/home/carma/.ros
@@ -89,8 +81,6 @@ services:
     network_mode: host
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     volumes:
       - /opt/carma/logs:/opt/carma/logs
       - /opt/carma/.ros:/home/carma/.ros
@@ -103,8 +93,6 @@ services:
     privileged: true # Grant access to kvaser
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - ROS_IP=192.168.88.10
     volumes:
@@ -119,8 +107,6 @@ services:
     network_mode: host
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     volumes:
       - /opt/carma/logs:/opt/carma/logs
       - /opt/carma/.ros:/home/carma/.ros
@@ -133,8 +119,6 @@ services:
     network_mode: host
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     volumes:
       - /opt/carma/logs:/opt/carma/logs
       - /opt/carma/.ros:/home/carma/.ros
@@ -146,8 +130,6 @@ services:
     network_mode: host
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - ROS_IP=192.168.88.10
     volumes:
@@ -166,8 +148,6 @@ services:
       - /dev/bus/usb/001/005:/dev/bus/usb/001/005
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - ROS_IP=192.168.88.10
     volumes:

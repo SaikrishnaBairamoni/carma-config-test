@@ -19,8 +19,6 @@ services:
     container_name: roscore
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - ROS_IP=192.168.88.10
     volumes:
@@ -35,8 +33,6 @@ services:
     container_name: platform
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - CYCLONEDDS_URI=${CYCLONEDDS_URI}
     runtime: nvidia
@@ -55,8 +51,6 @@ services:
     container_name: ros1_bridge
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - ROS_IP=192.168.88.10
       - ROS_MASTER_URI=http://localhost:11311
@@ -76,8 +70,6 @@ services:
     container_name: lightbar-driver
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     volumes:
       - /opt/carma/logs:/opt/carma/logs
       - /opt/carma/.ros:/home/carma/.ros
@@ -92,8 +84,6 @@ services:
     network_mode: host
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - CYCLONEDDS_URI=${CYCLONEDDS_URI}
     volumes:
@@ -111,8 +101,6 @@ services:
       - /dev/bus/usb/001/003:/dev/bus/usb/001/003
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - ROS_IP=192.168.88.10
     volumes:
@@ -127,8 +115,6 @@ services:
     network_mode: host
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - CYCLONEDDS_URI=${CYCLONEDDS_URI}
     volumes:
@@ -143,8 +129,6 @@ services:
     network_mode: host
     volumes_from:
       - container:carma-config:ro
-    ports:
-      - "8765:8765"  # For Foxglove Bridge
     environment:
       - CYCLONEDDS_URI=${CYCLONEDDS_URI}
     volumes:
