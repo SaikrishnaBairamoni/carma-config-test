@@ -132,6 +132,9 @@ services:
       carma_sim_net:
         ipv4_address: 172.2.0.6
     container_name: carma-carla-integration_1
+    volumes:
+      - ./carma-carla-integration/sensors.json:/home/carma/carma-carla-integration/carma-carla-agent/agent/config/sensors.json
+      - ./carma-carla-integration/carma_carla_agent.launch:/home/carma/carma-carla-integration/carma-carla-agent/launch/carma_carla_agent.launch
     volumes_from:
       - container:carma-config:ro
     environment:
