@@ -1,0 +1,52 @@
+2025-02-26 05:18:23.248471	DEBUG	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 127	Adding event log from '--------' --> ------------------------
+2025-02-26 05:18:23.261008	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'Ivp Core' --> IVP Core Starting
+2025-02-26 05:18:24.350659	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'ivpcore.PluginMonitor' --> Plugin registered
+2025-02-26 05:18:24.361447	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<ivpcore.PluginMonitor> Setting plugin status: Running
+2025-02-26 05:18:24.383403	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<ivpcore.PluginMonitor> Setting plugin status: Delayed Start...
+2025-02-26 05:18:24.431325	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'ivpcore.MessageProfiler' --> Plugin registered
+2025-02-26 05:18:24.442910	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<ivpcore.MessageProfiler> Setting plugin status: Running
+2025-02-26 05:18:24.500539	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'ivpcore.HistoryManager' --> Plugin registered
+2025-02-26 05:18:24.512622	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<ivpcore.HistoryManager> Setting plugin status: Running
+2025-02-26 05:18:34.390909	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<ivpcore.PluginMonitor> Setting plugin status: Running
+2025-02-26 05:18:40.388299	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'CARMAStreetsPlugin' --> Plugin registered
+2025-02-26 05:18:40.400889	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<CARMAStreetsPlugin> Setting plugin status: Running
+2025-02-26 13:18:38.735097	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'CARMAStreetsPlugin' (id: 2) startup time: 829 milliseconds
+2025-02-26 13:18:38.759316	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'CARMAStreetsPlugin' (id: 2) has exceeded it's max message interval. Now restarting the plugin.
+2025-02-26 13:18:38.771183	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'CDASimAdapter' (id: 3) has exceeded the max allowed startup time. Now restarting the plugin.
+2025-02-26 13:18:38.772232	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'CARMAStreetsPlugin' --> Plugin deconstructing
+2025-02-26 13:18:38.783235	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'CommandPlugin' (id: 4) has exceeded the max allowed startup time. Now restarting the plugin.
+2025-02-26 13:18:38.784313	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<CARMAStreetsPlugin> Setting plugin status: Stopped / Disconnected
+2025-02-26 13:18:38.795162	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'ImmediateForward' (id: 8) has exceeded the max allowed startup time. Now restarting the plugin.
+2025-02-26 13:18:38.806867	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'MAP' (id: 10) has exceeded the max allowed startup time. Now restarting the plugin.
+2025-02-26 13:18:38.819035	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'MessageReceiver' (id: 12) has exceeded the max allowed startup time. Now restarting the plugin.
+2025-02-26 13:18:39.406024	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'CDASimAdapter' --> Plugin registered
+2025-02-26 13:18:39.417249	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<CDASimAdapter> Setting plugin status: Running
+2025-02-26 13:18:39.429062	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'CDASimAdapter' --> Plugin deconstructing
+2025-02-26 13:18:39.440854	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<CDASimAdapter> Setting plugin status: Stopped / Disconnected
+2025-02-26 13:18:40.405391	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'CommandPlugin' --> Plugin registered
+2025-02-26 13:18:40.417160	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<CommandPlugin> Setting plugin status: Running
+2025-02-26 13:18:40.428862	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'CommandPlugin' --> Plugin deconstructing
+2025-02-26 13:18:40.440228	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<CommandPlugin> Setting plugin status: Stopped / Disconnected
+2025-02-26 13:18:41.414895	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'ImmediateForward' --> Plugin registered
+2025-02-26 13:18:41.425836	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<ImmediateForward> Setting plugin status: Running
+2025-02-26 13:18:41.436817	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'ImmediateForward' --> Plugin deconstructing
+2025-02-26 13:18:41.448096	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<ImmediateForward> Setting plugin status: Stopped / Disconnected
+2025-02-26 13:18:42.410224	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'MAP' --> Plugin registered
+2025-02-26 13:18:42.421315	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<MAP> Setting plugin status: Running
+2025-02-26 13:18:42.432820	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'MAP' --> Plugin deconstructing
+2025-02-26 13:18:42.443947	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<MAP> Setting plugin status: Stopped / Disconnected
+2025-02-26 13:18:43.365919	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 157	<Unknown> Unable to set plugin status items, plugin is not registered
+2025-02-26 13:18:43.365968	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/PluginConnection.cpp, 508	Unable to set plugin status items, plugin is not registered
+2025-02-26 13:18:43.408750	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'MessageReceiver' --> Plugin registered
+2025-02-26 13:18:43.419458	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<MessageReceiver> Setting plugin status: Running
+2025-02-26 13:18:43.430614	WARNING	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 117	Adding event log from 'MessageReceiver' --> Plugin deconstructing
+2025-02-26 13:18:43.441550	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<MessageReceiver> Setting plugin status: Stopped / Disconnected
+2025-02-26 13:18:43.846679	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'CDASimAdapter' (id: 3) startup time: 28799664 milliseconds
+2025-02-26 13:18:43.858346	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'CommandPlugin' (id: 4) startup time: 28800489 milliseconds
+2025-02-26 13:18:43.869351	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'ImmediateForward' (id: 8) startup time: 28801325 milliseconds
+2025-02-26 13:18:43.880657	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'MAP' (id: 10) startup time: 28802146 milliseconds
+2025-02-26 13:18:43.891573	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'ivpcore.PluginMonitor' --> Plugin 'MessageReceiver' (id: 12) startup time: 28802968 milliseconds
+2025-02-26 13:18:44.447993	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'CARMAStreetsPlugin' --> Plugin registered
+2025-02-26 13:18:44.459311	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<CARMAStreetsPlugin> Setting plugin status: Running
+2025-02-26 13:18:45.414892	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/logger.cpp, 114	Adding event log from 'CDASimAdapter' --> Plugin registered
+2025-02-26 13:18:45.426496	INFO	/home/V2X-Hub/src/tmx/TmxCore/src/Plugin.cpp, 141	<CDASimAdapter> Setting plugin status: Running
