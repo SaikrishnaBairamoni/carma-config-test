@@ -28,7 +28,7 @@ services:
     command: roscore
 
   platform:
-    image: ${DOCKER_ORG}/carma-platform:${DOCKER_TAG}
+    image: ${DOCKER_ORG}/carma-platform:tempest
     network_mode: host
     container_name: platform
     runtime: nvidia
@@ -129,7 +129,7 @@ services:
     command: bash -c 'source /opt/carma/install/setup.bash && ros2 launch /opt/carma/vehicle/config/drivers.launch.py drivers:=velodyne_lidar_driver_wrapper'
 
   velodyne_concatenator:
-    image: ${DOCKER_ORG}/carma-platform:${DOCKER_TAG}
+    image: ${DOCKER_ORG}/carma-platform:tempest
     container_name: velodyne-concatenator
     network_mode: host
     volumes_from:
