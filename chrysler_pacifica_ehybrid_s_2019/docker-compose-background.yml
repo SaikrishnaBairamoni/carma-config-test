@@ -17,6 +17,8 @@ services:
     image: ${DOCKER_ORG}/carma-web-ui:${DOCKER_TAG}
     network_mode: host
     container_name: web-ui
+    logging:
+      driver: "none"
     environment:
       - ROS_IP=192.168.88.10
     volumes_from:
