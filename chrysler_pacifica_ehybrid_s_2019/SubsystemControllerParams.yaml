@@ -55,7 +55,7 @@ guidance:
         - /guidance/plugins/inlanecruising_plugin
         - /guidance/plugins/cooperative_lanechange
       auto_activated_plugins:
-        - /guidance/plugins/lci_strategic_plugin
+      #  - /guidance/plugins/lci_strategic_plugin
       #  - /guidance/plugins/intersection_transit_maneuvering
       #  - /guidance/plugins/light_controlled_intersection_tactical_plugin
         - /guidance/plugins/stop_and_wait_plugin
