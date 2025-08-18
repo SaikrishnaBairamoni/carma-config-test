@@ -12,11 +12,16 @@
 #  License for the specific language governing permissions and limitations under
 #  the License.
 
+# Define logging configuration to reuse
+x-no-logging: &no-logging
+  driver: "none"
+
 services:
   roscore:
     image: ${DOCKER_ORG}/carma-base:${DOCKER_TAG}-noetic
     network_mode: host
     container_name: roscore
+    logging: *no-logging
     volumes_from:
       - container:carma-config:ro
     environment:
@@ -49,6 +54,7 @@ services:
     image: ${DOCKER_ORG}/carma-msgs:${DOCKER_TAG}
     network_mode: host
     container_name: ros1_bridge
+    logging: *no-logging
     volumes_from:
       - container:carma-config:ro
     environment:
@@ -69,6 +75,7 @@ services:
     image: ${DOCKER_ORG}/carma-lightbar-driver:${DOCKER_TAG}
     network_mode: host
     container_name: lightbar-driver
+    logging: *no-logging
     volumes_from:
       - container:carma-config:ro
     volumes:
@@ -83,6 +90,7 @@ services:
     image: ${DOCKER_ORG}/v2x-ros-driver:${DOCKER_TAG}
     container_name: v2x-ros-driver
     network_mode: host
+    logging: *no-logging
     volumes_from:
       - container:carma-config:ro
     volumes:
@@ -95,6 +103,7 @@ services:
     container_name: ssc_controller_driver
     network_mode: host
     privileged: true # Grant access to usb for can data
+    logging: *no-logging
     volumes_from:
       - container:carma-config:ro
     environment:
@@ -109,6 +118,7 @@ services:
     image: ${DOCKER_ORG}/carma-novatel-oem7-driver-wrapper:${DOCKER_TAG}
     container_name: carma-novatel-oem7-driver-wrapper
     network_mode: host
+    logging: *no-logging
     volumes_from:
       - container:carma-config:ro
     volumes:
