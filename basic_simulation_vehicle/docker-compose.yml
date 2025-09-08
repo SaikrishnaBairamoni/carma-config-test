@@ -1,5 +1,3 @@
-include:
-  path: ../carma_config/docker-compose.common.yml
 
 services:
     
