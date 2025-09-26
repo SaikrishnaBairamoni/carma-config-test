@@ -73,7 +73,7 @@ services:
     networks:
       carma_net_1:
         ipv4_address: 172.3.0.6
-      ${CARMA_SIM_NET}:
+      ${PROJECT_NAME}_carma_sim_net:
         ipv4_address: 172.2.0.6
     container_name: carma-carla-integration
     volumes:
@@ -107,7 +107,7 @@ services:
     networks:
       carma_net_1:
         ipv4_address: 172.3.0.7
-      ${CARMA_SIM_NET}:
+      ${PROJECT_NAME}_carma_sim_net:
         ipv4_address: 172.2.0.7
     container_name: ns3_adapter
     volumes_from:
@@ -131,7 +131,7 @@ services:
       remap_ns:=/hardware_interface/comms"
 
 networks:
-  ${CARMA_SIM_NET}:
+  ${PROJECT_NAME}_carma_sim_net:
     external: true
   carma_net_1:
     ipam:
